@@ -81,6 +81,14 @@ class _LoadImageDemoState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Widget userHeader = UserAccountsDrawerHeader(
+      accountName: new Text('weitian'),
+      accountEmail: new Text('weitian.com'),
+      currentAccountPicture: new CircleAvatar(
+        child: new Image.asset('././images/timg.jpeg', fit: BoxFit.fill),
+      ),
+    );
+
     return WillPopScope(
       onWillPop: () => _onBackPressed(context),
       child: new Scaffold(
@@ -92,6 +100,32 @@ class _LoadImageDemoState extends State<HomeScreen> {
                   onPressed: () => showSearch(
                       context: context, delegate: SearchBarDelegate())),
             ],
+          ),
+          drawer: new Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                userHeader,
+                ListTile(
+                  title: Text('item1'),
+                  leading: new CircleAvatar(
+                    child: new Icon(Icons.school),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  title: Text('item2'),
+                  leading: new CircleAvatar(
+                    child: new Icon(Icons.list),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ),
           ),
           body: Column(
             children: <Widget>[
