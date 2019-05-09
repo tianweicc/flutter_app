@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'dart:async';
-import 'package:flutter_app/login_widget.dart';
+import 'package:flutter_app/views/login_widget.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/components/drawer.dart';
 
 //import 'package:multi_image_picker/asset.dart';
 //import 'package:multi_image_picker/multi_image_picker.dart';
@@ -101,56 +102,7 @@ class _LoadImageDemoState extends State<HomeScreen> {
                       context: context, delegate: SearchBarDelegate())),
             ],
           ),
-          drawer: new Drawer(
-              child: new Column(
-            children: <Widget>[
-              new Expanded(
-                flex: 11,
-                child: new ListView(
-                  padding: EdgeInsets.zero,
-                  children: <Widget>[
-                    userHeader,
-                    ListTile(
-                      title: Text('item1'),
-                      leading: new CircleAvatar(
-                        child: new Icon(Icons.school),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('item2'),
-                      leading: new CircleAvatar(
-                        child: new Icon(Icons.list),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    )
-                  ],
-                ),
-              ),
-              new Expanded(
-                  child: Container(
-                margin: EdgeInsets.only(bottom: 20.0),
-                height: 30.0,
-                child: new RaisedButton(
-                  shape: StadiumBorder(),
-                  padding: EdgeInsets.only(left: 50, right: 50),
-                  color: Colors.blue,
-                  child: Text('退出登录'),
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new LoginWidget()));
-                  },
-                ),
-              ))
-            ],
-          )),
+          drawer: new Drawer(child: new DrawerWidget()),
           body: Column(
             children: <Widget>[
               Container(

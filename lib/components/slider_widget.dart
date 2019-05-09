@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'login_widget.dart';
+import 'package:flutter_app/views/login_widget.dart';
 
 class SliderWidget extends StatefulWidget {
   @override

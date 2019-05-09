@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_widget.dart';
+import 'package:flutter_app/views/login_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();

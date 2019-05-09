@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/video_widget.dart';
-import 'package:flutter_app/components/webview_widget.dart';
-import 'package:flutter_app/components/animation_widget.dart';
+import 'package:flutter_app/views/video_widget.dart';
+import 'package:flutter_app/views/webview_widget.dart';
+import 'package:flutter_app/views/animation_widget.dart';
 
 class PagesScreen extends StatelessWidget {
   @override

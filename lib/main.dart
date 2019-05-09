@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'slider_widget.dart';
+import 'package:flutter_app/components/slider_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'splashScreen.dart';
+import 'package:flutter_app/components/splashScreen.dart';
 
 void main() => runApp(MyApp());
 

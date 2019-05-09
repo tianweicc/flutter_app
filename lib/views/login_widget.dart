@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'register_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'bottom_navigation_widget.dart';
+import 'package:flutter_app/bottom_navigation_widget.dart';
 
 class LoginWidget extends StatefulWidget {
   @override
