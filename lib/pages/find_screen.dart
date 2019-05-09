@@ -1,83 +1,51 @@
 import 'package:flutter/material.dart';
 
-class FindScreen extends StatefulWidget{
+class FindScreen extends StatefulWidget {
   @override
   FindScreenState createState() => FindScreenState();
 }
 
-class FindScreenState extends State<FindScreen>
-    with SingleTickerProviderStateMixin {
-  AnimationController animationController;
-  Animation parentAnimation;
-  Animation childAnimation;
-
-  @override
-  void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    parentAnimation = Tween(begin: -0.5, end: 0.0).animate(
-        CurvedAnimation(parent: animationController, curve: Curves.easeIn));
-    childAnimation = Tween(begin: 0.0, end: 100.0).animate(
-        CurvedAnimation(parent: animationController, curve: Curves.easeIn));
-    animationController.forward();
-    super.initState();
-  }
-
+class FindScreenState extends State<FindScreen> {
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-
-    return AnimatedBuilder(
-      animation: parentAnimation,
-      builder: (BuildContext context, Widget child) {
-        return Scaffold(
-          body: Transform(
-            transform: Matrix4.translationValues(
-                parentAnimation.value * width, 0.0, 0.0),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  AnimatedBuilder(
-                    animation: childAnimation,
-                    builder: (BuildContext context, Widget child) {
-                      return Container(
-                        color: Colors.lightBlue,
-                        width: childAnimation.value * 2,
-                        height: childAnimation.value,
-                        child: Text(
-                          '大老虎',
-                          style: new TextStyle(
-                            fontSize: 30,
-                            color: Colors.white
-                          ),
-                        ),
-                        alignment: Alignment.center,
-
-                      );
-                    },
-                  ),
-                  Container(
-                    color: Colors.orange,
-                    width: 200.0,
-                    height: 100.0,
-                    child: Text(
-                        '小🐀',
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(
-                        fontSize: 30,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    alignment: Alignment.center,
-                  ),
-                ],
-              ),
-            ),
+    return Scaffold(
+        appBar: AppBar(title: Text('发现')),
+        body: GestureDetector(
+          child: new GridView.count(
+            //一行多少个
+            crossAxisCount: 2,
+            padding: const EdgeInsets.all(10.0),
+            // 上下间隔
+            mainAxisSpacing: 0.0,
+            // 左右间隔
+            crossAxisSpacing: 10.0,
+            //宽高比 默认1
+            childAspectRatio: 10 / 6,
+            children: _buildGridTileList(30),
           ),
-        );
-      },
-    );
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: Text('这是GridView~~'),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('close'),
+                          onPressed: () => Navigator.pop(context, false),
+                        ),
+                      ],
+                    ));
+          },
+        ));
   }
 
+  List<Container> _buildGridTileList(int count) {
+    return new List.generate(
+        count,
+        (int index) => new Container(
+              height: 120,
+              width: 100,
+              child: new Image.asset("images/city.png"),
+            ));
+  }
 }

@@ -133,22 +133,22 @@ class _LoadImageDemoState extends State<HomeScreen> {
               ),
               new Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 20.0),
-                    height: 30.0,
-                    child: new RaisedButton(
-                      shape: StadiumBorder(),
-                      padding: EdgeInsets.only(left: 50, right: 50),
-                      color: Colors.blue,
-                      child: Text('退出登录'),
-                      textColor: Colors.white,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            new MaterialPageRoute(
-                                builder: (context) => new LoginWidget()));
-                      },
-                    ),
-                  ))
+                margin: EdgeInsets.only(bottom: 20.0),
+                height: 30.0,
+                child: new RaisedButton(
+                  shape: StadiumBorder(),
+                  padding: EdgeInsets.only(left: 50, right: 50),
+                  color: Colors.blue,
+                  child: Text('退出登录'),
+                  textColor: Colors.white,
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => new LoginWidget()));
+                  },
+                ),
+              ))
             ],
           )),
           body: Column(

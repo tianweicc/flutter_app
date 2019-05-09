@@ -148,8 +148,6 @@ class MineScreenState extends State<MineScreen> {
   }
 
   void onItemClick(String s, List bc) {
-    print(bc);
-    print(s);
      showDialog(
         context: context,
         builder: (context) => AlertDialog(
