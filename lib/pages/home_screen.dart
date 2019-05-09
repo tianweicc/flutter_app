@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'dart:async';
+import 'package:flutter_app/login_widget.dart';
 import 'package:flutter/services.dart';
 
 //import 'package:multi_image_picker/asset.dart';
@@ -30,10 +31,6 @@ class _LoadImageDemoState extends State<HomeScreen> {
       ))
       ..add(Image.network(
         'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377209876&di=ffc006c17e1038d2b5c016f0767e76f2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201610%2F09%2F20161009162424_ytRCY.thumb.700_0.jpeg',
-        fit: BoxFit.fill,
-      ))
-      ..add(Image.network(
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377252137&di=39de5df3a4e013e57628f1da3dce2f11&imgtype=0&src=http%3A%2F%2Fup.enterdesk.com%2Fedpic_360_360%2Fc1%2F43%2F13%2Fc143137484bd32b49172660c504927ac.jpg',
         fit: BoxFit.fill,
       ));
     super.initState();
@@ -85,8 +82,10 @@ class _LoadImageDemoState extends State<HomeScreen> {
       accountName: new Text('weitian'),
       accountEmail: new Text('weitian.com'),
       currentAccountPicture: new CircleAvatar(
-          backgroundImage: new NetworkImage("https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
-          child: new Text("伟田", style: TextStyle(color: Colors.black)),//可以在图片上添加文字等等
+        backgroundImage: new NetworkImage(
+            "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
+        child: new Text("伟田",
+            style: TextStyle(color: Colors.black)), //可以在图片上添加文字等等
       ),
     );
 
@@ -103,38 +102,62 @@ class _LoadImageDemoState extends State<HomeScreen> {
             ],
           ),
           drawer: new Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                userHeader,
-                ListTile(
-                  title: Text('item1'),
-                  leading: new CircleAvatar(
-                    child: new Icon(Icons.school),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+              child: new Column(
+            children: <Widget>[
+              new Expanded(
+                flex: 11,
+                child: new ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    userHeader,
+                    ListTile(
+                      title: Text('item1'),
+                      leading: new CircleAvatar(
+                        child: new Icon(Icons.school),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('item2'),
+                      leading: new CircleAvatar(
+                        child: new Icon(Icons.list),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    )
+                  ],
                 ),
-                ListTile(
-                  title: Text('item2'),
-                  leading: new CircleAvatar(
-                    child: new Icon(Icons.list),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                )
-              ],
-            ),
-          ),
+              ),
+              new Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 20.0),
+                    height: 30.0,
+                    child: new RaisedButton(
+                      shape: StadiumBorder(),
+                      padding: EdgeInsets.only(left: 50, right: 50),
+                      color: Colors.blue,
+                      child: Text('退出登录'),
+                      textColor: Colors.white,
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => new LoginWidget()));
+                      },
+                    ),
+                  ))
+            ],
+          )),
           body: Column(
             children: <Widget>[
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 180.0,
                 child: Swiper(
-                  itemCount: 4,
+                  itemCount: 3,
                   itemBuilder: _swiperBuilder,
                   pagination: SwiperPagination(
                       // 远点位置控制
