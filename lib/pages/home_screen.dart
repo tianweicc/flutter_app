@@ -21,19 +21,19 @@ class _LoadImageDemoState extends State<HomeScreen> {
   void initState() {
     imageList
       ..add(Image.network(
-        'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2726034926,4129010873&fm=26&gp=0.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377088723&di=844ad0ce06f402d7150c34f5d8fdd717&imgtype=0&src=http%3A%2F%2Fwk.impress.sinaimg.cn%2Fmaxwidth.600%2Fsto.kan.weibo.com%2F02c30cdc3502fea48fb8c2508575b6b1.png%3Fwidth%3D600%26height%3D338',
         fit: BoxFit.fill,
       ))
       ..add(Image.network(
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485348007,2192172119&fm=26&gp=0.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377209876&di=8fcc99da74e806033019e78cd1acaf40&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201601%2F14%2F20160114224955_LsGxv.jpeg',
         fit: BoxFit.fill,
       ))
       ..add(Image.network(
-        'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2594792439,969125047&fm=26&gp=0.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377209876&di=ffc006c17e1038d2b5c016f0767e76f2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201610%2F09%2F20161009162424_ytRCY.thumb.700_0.jpeg',
         fit: BoxFit.fill,
       ))
       ..add(Image.network(
-        'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=190488632,3936347730&fm=26&gp=0.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557377252137&di=39de5df3a4e013e57628f1da3dce2f11&imgtype=0&src=http%3A%2F%2Fup.enterdesk.com%2Fedpic_360_360%2Fc1%2F43%2F13%2Fc143137484bd32b49172660c504927ac.jpg',
         fit: BoxFit.fill,
       ));
     super.initState();
@@ -85,7 +85,8 @@ class _LoadImageDemoState extends State<HomeScreen> {
       accountName: new Text('weitian'),
       accountEmail: new Text('weitian.com'),
       currentAccountPicture: new CircleAvatar(
-        child: new Image.asset('././images/timg.jpeg', fit: BoxFit.fill),
+          backgroundImage: new NetworkImage("https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
+          child: new Text("伟田", style: TextStyle(color: Colors.black)),//可以在图片上添加文字等等
       ),
     );
 
