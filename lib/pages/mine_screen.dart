@@ -26,7 +26,6 @@ class MineScreenState extends State<MineScreen> {
   }
 
   loadData() async {
-
     String loadRUL = "https://api.douban.com/v2/movie/in_theaters";
     Dio dio = new Dio();
     Response response = await dio.get(loadRUL);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'dart:async';
-import 'package:flutter_app/views/login_widget.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/components/drawer.dart';
 
@@ -79,16 +78,6 @@ class _LoadImageDemoState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget userHeader = UserAccountsDrawerHeader(
-      accountName: new Text('weitian'),
-      accountEmail: new Text('weitian.com'),
-      currentAccountPicture: new CircleAvatar(
-        backgroundImage: new NetworkImage(
-            "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
-        child: new Text("伟田",
-            style: TextStyle(color: Colors.black)), //可以在图片上添加文字等等
-      ),
-    );
 
     return WillPopScope(
       onWillPop: () => _onBackPressed(context),
@@ -112,7 +101,7 @@ class _LoadImageDemoState extends State<HomeScreen> {
                   itemCount: 3,
                   itemBuilder: _swiperBuilder,
                   pagination: SwiperPagination(
-                      // 远点位置控制
+                    // 远点位置控制
 //                        alignment: Alignment.bottomRight,
 //                        margin: const EdgeInsets.fromLTRB(0, 0, 20, 10),
                       builder: DotSwiperPaginationBuilder(
@@ -160,7 +149,7 @@ class _LoadImageDemoState extends State<HomeScreen> {
 //          onPressed: loadAssets,
 //          child: Icon(Icons.image),
 //        ),
-          ),
+      ),
     );
   }
 
@@ -178,18 +167,18 @@ class _LoadImageDemoState extends State<HomeScreen> {
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('你确定要退出app吗?'),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('No'),
-                  onPressed: () => Navigator.pop(context, false),
-                ),
-                FlatButton(
-                  child: Text('Yes'),
-                  onPressed: () => Navigator.pop(context, true),
-                ),
-              ],
-            ));
+          title: Text('你确定要退出app吗?'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('No'),
+              onPressed: () => Navigator.pop(context, false),
+            ),
+            FlatButton(
+              child: Text('Yes'),
+              onPressed: () => Navigator.pop(context, true),
+            ),
+          ],
+        ));
   }
 }
 

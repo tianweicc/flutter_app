@@ -34,24 +34,14 @@ class TextFieldFocusDemoState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    print("$mfirst");
-    if("$mfirst" == 'null') {
-      return new MaterialApp(
-        home: new SliderWidget(),
-        theme: new ThemeData(
-          primaryColor: Colors.blue,
-          platform: TargetPlatform.iOS,
-        ),
-      );
-    } else {
-      return new MaterialApp(
-        home: new SplashScreen(),
-        theme: new ThemeData(
-          primaryColor: Colors.blue,
-          platform: TargetPlatform.iOS,
-        ),
-      );
-    }
+    return new MaterialApp(
+      home: "$mfirst" == 'null' ? new SliderWidget() : new SplashScreen(),
+      theme: new ThemeData(
+        primaryColor: Colors.blue,
+        platform: TargetPlatform.iOS,
+      ),
+    );
+
 
   }
 }

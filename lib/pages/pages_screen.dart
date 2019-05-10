@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/views/video_widget.dart';
 import 'package:flutter_app/views/webview_widget.dart';
 import 'package:flutter_app/views/animation_widget.dart';
+import 'package:flutter_app/views/animationhearder_widget.dart';
 
 class PagesScreen extends StatelessWidget {
   @override
@@ -39,6 +40,15 @@ class PagesScreen extends StatelessWidget {
                   new MaterialPageRoute(builder: (context) => AnimaTionWidget()));
             },
             child: Text('简单动画'),
+            color: Colors.blue,
+            textColor: Colors.white,
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => HeaderWidget()));
+            },
+            child: Text('动画改变头部'),
             color: Colors.blue,
             textColor: Colors.white,
           ),

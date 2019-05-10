@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/login_widget.dart';
+import 'package:flutter_app/views/tab_widget.dart';
 
 class DrawerWidget extends StatefulWidget {
   @override
@@ -35,7 +36,9 @@ class DrawerWidgetState extends State<DrawerWidget> {
                   child: new Icon(Icons.school),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(builder: (context) => new TabWidget()));
                 },
               ),
               ListTile(
